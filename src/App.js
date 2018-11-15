@@ -8,9 +8,9 @@ import './css/app.css';
 
 const bitApiKey = "4834f949ab2c464cae3fac3dc7d4e84c";
 const openWeatherApiKey = "5689c2a2ebdff84b5f35b6445ec0710f";
-const openWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?";
+const openWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?";
 const bitUrl = "https://api.weatherbit.io/v2.0/forecast/hourly?";
-const forecastUrl = "http://api.weatherbit.io/v2.0/forecast/daily?";
+const forecastUrl = "https://api.weatherbit.io/v2.0/forecast/daily?";
 
 class App extends Component {
   constructor(props){

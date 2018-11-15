@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 const Hourly = (props) => {
 
