@@ -1,0 +1,376 @@
+@import "weather-icons.css";
+@import "weather-icons-wind.css";
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,900');
+@import url('typebase.css');
+
+body {
+    color: #000000;
+    font-family: 'Open Sans', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.temp:after {
+    content: "\00b0"
+}
+
+.sunset,
+.hourly.night .icon,
+.night .weather-type-name {
+    color: #030555;
+}
+
+.sunrise,
+.hourly.day .icon,
+.day .weather-type-name {
+    color: #EDB000;
+}
+
+.day.now {
+    background: #EDB000;
+}
+
+.night.now {
+    background: #030555;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4,160px) 160px;
+    grid-template-rows: repeat(2,80px) 173px 80px 80px;
+    max-width: 1024px;
+    margin: auto;
+  }
+
+  .select_forecast button {
+      font-size: 25px;
+      font-size: 25px;
+      border-bottom: 3px solid transparent;
+      margin-right: 10px;
+      color: #ccc;
+      box-sizing: border-box;
+      cursor: pointer;
+      padding-bottom: 5px;
+  }
+
+  .select_forecast button:hover {
+    color: #000;
+  }
+
+  .select_forecast button.selected {
+    border-color: #000;
+    color: #000;
+    font-weight: 800;
+  }
+
+.date {
+    grid-row: 2;
+    grid-column: 3/7;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+     grid-row: 2;
+     grid-column: 1/3; 
+}
+
+  .location {
+      grid-row: 2;
+      grid-column: 1/3;
+      align-self: center;
+      display: flex;
+      align-items: flex-start;
+      margin-right: 20px;
+  }
+
+  .autocomplete-dropdown-container {
+      margin-left: 10px;
+  }
+
+  @media only screen and (max-width:767px) {
+    .search-input,
+    .location {
+        grid-row: 1;
+        grid-column: 1/3;
+        align-self: center;
+    justify-self: center;
+    display: flex;
+    }
+
+    .search-input input {
+        margin-left: 0;
+    }
+    .autocomplete-dropdown-container {
+        position: absolute;
+        top: 60px;
+        max-width: 304px;
+        width: 100%;
+    }
+  }
+
+  .now {
+    grid-column: 3/5;
+    grid-row: 3;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+}
+
+.weather-type {
+    grid-column: 6;
+    grid-row: 3;
+}
+
+.low,
+.high {
+    grid-row: 4;
+}
+
+.low {
+    grid-column: 3;
+}
+
+.high {
+    grid-column: 4;
+}
+
+.sunrise {
+    grid-row: 5;
+    grid-column: 3;
+}
+
+.sunset {
+    grid-row: 5;
+    grid-column: 4;
+}
+
+.select_forecast {
+    grid-row: 4;
+    grid-column: 3/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.upcoming {
+    grid-row: 5;
+    grid-column: 3/5;
+    display: grid;
+    grid-template-columns: repeat(4,80px);
+    grid-row-gap: 20px;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width:767px) { 
+    .container {
+     grid-template-columns: 1fr;
+    }
+ 
+    .date {
+     grid-row: 2;
+     grid-column: 1;
+     justify-content: center;
+     border-top: 1px solid #ccc;
+    }
+
+    .now {
+        grid-column: 1;
+        justify-content: center;
+    }
+   }
+
+
+[class^="suggestion-item"]{
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-top:none;
+    color: #cccccc;
+}
+
+.suggestion-item--active {
+    color: #000000;
+    cursor: pointer;
+}
+
+  .weather-type {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-evenly;
+  }
+
+
+  .conditions {
+    grid-column: 5;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+    height: 100%;
+    padding-left: 20px;
+    justify-content: space-evenly;
+  }
+
+.conditions > div {
+    display: grid;
+    grid-template-columns: 25px auto;
+    grid-gap: 12px;
+}
+
+@media only screen and (max-width:767px) { 
+    .conditions {
+        grid-column: 1;
+        grid-row: 4;
+        flex-direction: row;
+        padding-left: 0;
+        align-items: center;
+        max-width: 350px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .conditions > div {
+        grid-template-rows: 14px auto;
+        grid-template-columns: 1fr;
+    }
+
+    .upcoming {
+        grid-column: 1;
+        grid-row: 6;
+        margin-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .select_forecast { 
+        grid-column: 1;
+        grid-row: 5;
+    }
+}
+
+.daily,
+.hourly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #fff;
+
+}
+
+.date {
+    font-weight: 800;
+    font-size: 50px;
+}
+
+@media only screen and (max-width:767px) { 
+    .date {
+        font-size: 25px;
+    }
+}
+
+.daily .hour,
+.hourly .hour {
+    order: 1;
+}
+
+.weather-type-name {
+    text-transform: capitalize;
+}
+
+.weather-type-name .icon {
+    margin-right: 10px;
+}
+
+.daily .icon,
+.hourly .icon {
+    order: 2;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.daily .temp,
+.hourly .temp {
+    order: 3;
+   display: block;
+   width: 100%;
+   font-weight: 800;
+   text-align: center;
+
+}
+
+.conditions > div .icon {
+    text-align: center;
+}
+
+.now {
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+}
+
+.now {
+    font-size: 250px;
+    overflow: hidden;
+}
+
+.conditions, .conditions .wi {
+    font-size: 25px;
+}
+
+.search-input input,
+.location-name {
+    font-size: 25px;
+}
+
+.search-input input {
+    width: 98%;
+    margin-left: 10px;
+}
+
+button {
+    background: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+}
+
+
+.search-input button {
+    background: none;
+    padding: 5px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border:  1px solid #ccc;
+    border-left: none;
+
+}
+
+.search-trigger {
+    border: none;
+  
+}
+
+.location {
+    cursor: pointer;
+}
+
+.location:hover {
+    opacity: .5;
+}
+
+.search-trigger .icon,
+.search-button img {
+    height: 25px;
+    width: 25px;
+}
