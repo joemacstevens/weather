@@ -1,8 +1,13 @@
 import React from 'react';
 import moment from 'moment';
+import {Motion, spring} from 'react-motion';
 
 
 const Today = (props) => {
+    
+    let styles = {
+        opacity: props.opacity
+    }
 
     function getTime(time){
         return moment.unix(time).format("h:mm")
@@ -21,13 +26,13 @@ const Today = (props) => {
 
     return (
         <React.Fragment>
-        <div className="date">
+        <div className="date" style={styles}>
         <div className="weather-type-name">
         {getIcon()}
         <span className="weather-type-name">{props.current.weather[0].main}</span>
         </div>
             </div>
-            <div className={`now ${day}`}>
+            <div className={`now ${day}`} style={styles}>
             <span className="temp">{getFTemp(props.current.main.temp)}</span>
         </div>
 

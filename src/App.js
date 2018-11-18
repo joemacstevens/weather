@@ -3,6 +3,7 @@ import Search from './components/Search';
 import Today from './components/Today';
 import Hourly from './components/Hourly';
 import Daily from './components/Daily';
+import {Motion, spring} from 'react-motion';
 import './css/app.css';
 
 
@@ -93,7 +94,11 @@ class App extends Component {
 
   showCurrent(){
     if(this.state.search){
-      return <Today current={this.state.current}/>;
+      return (
+        <Motion defaultStyle={{opacity:0}}
+        style={{ opacity: spring(1, { stiffness: 60, damping: 10 }) }}>
+          {interpolatedStyle => <Today opacity={interpolatedStyle.opacity} current={this.state.current}/>}
+        </Motion>);
     } else {
       return "";
     }
