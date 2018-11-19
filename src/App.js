@@ -34,9 +34,7 @@ class App extends Component {
 
     let searching = this.state.search === true ? false : true;
     this.setState({
-      search: searching,
-      hourly: null,
-      daily: null,
+      search: searching
     })
 
   }
@@ -93,14 +91,17 @@ class App extends Component {
   }
 
   showCurrent(){
-    if(this.state.search){
+    if(this.state.current){
       return (
         <Motion defaultStyle={{opacity:0}}
         style={{ opacity: spring(1, { stiffness: 60, damping: 10 }) }}>
           {interpolatedStyle => <Today opacity={interpolatedStyle.opacity} current={this.state.current}/>}
         </Motion>);
     } else {
-      return "";
+      return <Motion defaultStyle={{opacity:0}}
+      style={{ opacity: spring(1, { stiffness: 60, damping: 10 }) }}>
+          {interpolatedStyle => <div className="intro" style={{opacity:interpolatedStyle.opacity}}><h3><i className="fas fa-angle-left"></i> Simply Weather</h3></div>}
+      </Motion>;
     }
   }
 

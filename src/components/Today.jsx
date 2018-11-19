@@ -1,7 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import {Motion, spring} from 'react-motion';
-
 
 const Today = (props) => {
     
